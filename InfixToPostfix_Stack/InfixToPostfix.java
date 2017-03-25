@@ -49,30 +49,30 @@ public class InfixToPostfix {
 					
 					char c = s.charAt(0);
 
-					if (Character.isDigit(c))		//If the character is a digit, just append it to the result
+					if (Character.isDigit(c))  //If the character is a digit, just append it to the result
 						choice(1, s);
-					else if (c == '(') {			//If its a left bracket, push it to the stack
+					else if (c == '(') { 	  //If its a left bracket, push it to the stack
 						operators.push(c);
-					} else if (c == ')') {			//If its a right bracket, pop all the operators till the left bracket
+					} else if (c == ')') {	  //If its a right bracket, pop all the operators till the left bracket
 						while(operators.peek() != '('){
 							result.append(operators.pop()+" ");
 						}
 						operators.pop();
-					} else				//If its any other operator, just follow the precedence rules and pop accordingly
+					} else		//If its any other operator, just follow the precedence rules and pop accordingly
 						choice(2, s);
 				}
 
 				Iterator<Character> itr = operators.iterator();	//This part is for any remaining operators on the stack
 				while (itr.hasNext()) {
 					char temp = itr.next();
-					operators.pop();				//popping and appending any remaining operators on the stack
+					operators.pop();		//popping and appending any remaining operators on the stack
 					result.append(temp + " ");
 				}
 
 				String finalresult = result.toString();
 
 				System.out.println(
-						"Postfix String is \" " + finalresult + "\"" + " and it evaluates to " + postfix(finalresult));
+						"Postfix: \" " + finalresult + "\"" + " and it evaluates to " + postfix(finalresult));
 				System.out.println();
 
 				result.setLength(0); //Resetting the length of the StringBuilder for usage in further iterations.
@@ -102,14 +102,14 @@ public class InfixToPostfix {
 				while (itr.hasNext() && operators.peek()!='(') {
 					char temp = itr.next();
 					if (precedence(temp) > precedence(s.charAt(0)) || precedence(temp) == precedence(s.charAt(0))) {
-											//follow the precedence rules and pop and append accordingly
+									//follow the precedence rules and pop and append accordingly
 						operators.pop();
 						result.append(temp + " ");
 					} else
 						break;
 				}
 				operators.push(s.charAt(0)); 	//Push the operator to the stack after popping the ones with higher or 
-												//equal precedence levels
+								//equal precedence levels
 			}
 			break;
 		}
@@ -128,7 +128,7 @@ public class InfixToPostfix {
 		case '+':
 		case '-':
 			return 0;
-		case '*':								//Just random integers are set with precedence levels 
+		case '*':			//Just random integers are set with precedence levels 
 		case '/':
 			return 1;
 		default:
@@ -154,7 +154,7 @@ public class InfixToPostfix {
 
 			char temp2 = lol.charAt(0);
 
-			if (Character.isDigit(temp2))			//push to stack if the character is a number
+			if (Character.isDigit(temp2))		//push to stack if the character is a number
 				operands.push(Integer.parseInt(lol));
 			else {
 				switch (temp2) {
