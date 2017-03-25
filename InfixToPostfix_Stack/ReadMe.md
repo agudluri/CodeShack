@@ -8,4 +8,4 @@ Because the "+" is to the left of the "*" in the example above, the addition mus
 ( (A (B C +) *) D /) <br>
 Thus, the "*" uses the two values immediately preceding: "A", and the result of the addition. Similarly, the "/" uses the result of the multiplication and the "D".
 
-I've written a simple JAVA program that uses stacks to evaluate infix expressions. (See attached)
+I've written a simple JAVA program that uses stacks to convert infix expressions to postfix expressions. (See attached)
