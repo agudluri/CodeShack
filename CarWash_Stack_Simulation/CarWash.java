@@ -1,7 +1,4 @@
-package cs401.lab8.trees;
-
 import java.util.*;
-
 
 public class CarWash {
 	public final static String OVERFLOW = " (Overflow)\n";
@@ -17,7 +14,7 @@ public class CarWash {
 	protected Queue<Car> carQueue;
 
 	protected LinkedList<String> results; // the sequence of events in the
-											// simulation
+					      // simulation
 
 	protected int currentTime, nextDepartureTime, numberOfCars, waitingTime, sumOfWaitingTimes;
 
